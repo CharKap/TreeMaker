@@ -1614,6 +1614,30 @@ class MCSampleValuesHelper():
         "RPV_2t6j_mStop-1400_mN1-100" : {
             "CrossSection" : XSValues(XS_13TeV=0.000473),
         },
+         "RPV_2w4j_mStop-650" : {
+             "CrossSection" : XSValues(XS_13TeV=0.125),
+         },
+         "RPV_2w4j_mStop-850" : {
+             "CrossSection" : XSValues(XS_13TeV=0.0225),
+         },
+         "RPV_2w4j_mStop-450" : {
+             "CrossSection" : XSValues(XS_13TeV=1.11),
+         },
+         "RPV_2w4j_mStop-1000" : {
+             "CrossSection" : XSValues(XS_13TeV=0.683E-02),
+         },
+         "RPV_2w4j_mStop-1200" : {
+             "CrossSection" : XSValues(XS_13TeV=0.170E-02),
+         }, 
+         "RPV_2w4j_mStop-1000_mSbot-300" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
+         "RPV_2w4j_mStop-1000_mSbot-700" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
+         "RPV_2w4j_mStop-1200_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
+         "RPV_2w4j_mStop-1200_mSbot-500" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
+         "RPV_2w4j_mStop-1200_mSbot-900" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
+         "RPV_2w4j_mStop-450_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=1.11), },
+         "RPV_2w4j_mStop-650_mSbot-300" : { "CrossSection" : XSValues(XS_13TeV=0.125), },
+         "RPV_2w4j_mStop-850_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
+         "RPV_2w4j_mStop-850_mSbot-500" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
     }
 
     __alternate_names_dict = {
@@ -1685,3 +1709,7 @@ class MCSampleValuesHelper():
 
     def get_corr(self, name, energy, year):
         return self.get_value(name, energy, year, "Correction", False)
+=======
+        if self.__values_dict[name]["CrossSection"].__getattribute__(fields[0]) >= 0:
+            return self.__values_dict[name]["CrossSection"].__getattribute__(fields[0])
+>>>>>>> Charlie's work adding CA12 jets and RPV2W samples

@@ -247,6 +247,9 @@ def makeTreeFromMiniAOD(self,process):
         cut = cms.string("isPFJet && abs(daughter(0).energy)!=exp(1000)"),
     )
     JetAK8Tag = cms.InputTag('slimmedJetsAK8Good')
+
+    JetCA12Tag = cms.InputTag('JetsCA12')
+    print("Using jet tag for CA12: " , JetCA12Tag)
     process.slimmedJetsAK8Inf = cms.EDFilter("PATJetSelector",
         src = cms.InputTag("slimmedJetsAK8"),
         cut = cms.string("isPFJet && abs(daughter(0).energy)==exp(1000)"),
@@ -1307,6 +1310,107 @@ def makeTreeFromMiniAOD(self,process):
             )
         )
 
+
+    ## ----------------------------------------------------------------------------------------------
+    ## CA12 jets
+    ## ----------------------------------------------------------------------------------------------
+
+    if True:
+
+        from JMEAnalysis.JetToolbox.jetToolbox_cff import jetToolbox
+        jetToolbox(process,
+            'ca12',
+            'jetSequence',
+            'out',
+            PUMethod = 'Puppi',
+            miniAOD = True,
+            runOnMC = self.geninfo,
+            # Cut = 'pt>20.',
+            addPruning = False, # different from AK8
+            addSoftDrop = True,
+            addSoftDropSubjets = True,
+            addNsub = True,
+            maxTau = 4,
+            subjetBTagDiscriminators = ['pfCombinedInclusiveSecondaryVertexV2BJetTags'],
+            addEnergyCorrFunc = True,
+            associateTask = False,
+            #verbosity = 2 if self.verbose else 0,
+            verbosity=2,
+            # 
+            JETCorrPayload = 'AK8PFPuppi',
+            subJETCorrPayload = 'AK4PFPuppi',
+            JETCorrLevels = levels,
+            subJETCorrLevels = levels,
+        )
+
+        JetCA12Tag = cms.InputTag("packedPatJetsCA12PFPuppiSoftDrop")
+        subJetCA12Tag = cms.InputTag("selectedPatJetsCA12PFPuppiSoftDropPacked:SubJets")
+
+        # get puppi-specific multiplicities
+        from PhysicsTools.PatAlgos.patPuppiJetSpecificProducer_cfi import patPuppiJetSpecificProducer
+        process.puppiSpecificCA12 = patPuppiJetSpecificProducer.clone(
+            src = JetCA12Tag
+        )
+
+        # alternate softdrop parameters
+        process.ca12PFJetsPuppiSoftDropBeta1 = process.ca12PFJetsPuppiSoftDrop.clone(
+            beta = cms.double(1.0),
+        )
+        process.ca12PFJetsPuppiSoftDropMassBeta1 = process.ca12PFJetsPuppiSoftDropMass.clone(
+            src = JetCA12Tag,
+            matched = cms.InputTag("ca12PFJetsPuppiSoftDropBeta1")
+        )
+
+        # update userfloats (used for jet ID, including ID for JEC/JER variations)
+        process, JetCA12Tag = addJetInfo(
+            process, JetCA12Tag,
+            [
+                'puppiSpecificCA12:puppiMultiplicity',
+                'puppiSpecificCA12:neutralPuppiMultiplicity',
+                'puppiSpecificCA12:neutralHadronPuppiMultiplicity',
+                'puppiSpecificCA12:photonPuppiMultiplicity',
+                'puppiSpecificCA12:HFHadronPuppiMultiplicity',
+                'puppiSpecificCA12:HFEMPuppiMultiplicity',
+                'ca12PFJetsPuppiSoftDropMassBeta1',
+            ]
+        )
+
+        process = self.makeJetVarsCA12(
+            process,
+            JetTag=JetCA12Tag,
+            suff='CA12',
+            storeProperties=2,
+            puppiSpecific = 'puppiSpecificCA12',
+            #subjetTag = 'SoftDrop',
+            doECFs = True,
+        )
+
+        process.JetPropertiesCA12.properties = [
+            x for x in process.JetPropertiesCA12.properties if x not in [
+                "jecFactorSubjets", "SJptD", "SJaxismajor", "SJaxisminor", "SJmultiplicity",
+                "jerFactor", "origIndex"
+            ]
+        ]
+
+        # process.JetPropertiesCA12.ecfN2b1 = cms.vstring('ca12PFJetsPuppiSoftDropValueMap:nb1CA12PuppiSoftDropN2')
+        # process.JetPropertiesCA12.ecfN2b2 = cms.vstring('ca12PFJetsPuppiSoftDropValueMap:nb2CA12PuppiSoftDropN2')
+        # process.JetPropertiesCA12.ecfN3b1 = cms.vstring('ca12PFJetsPuppiSoftDropValueMap:nb1CA12PuppiSoftDropN3')
+        # process.JetPropertiesCA12.ecfN3b2 = cms.vstring('ca12PFJetsPuppiSoftDropValueMap:nb2CA12PuppiSoftDropN3')
+
+        # process.JetPropertiesCA12.NsubjettinessTau1 = cms.vstring('NjettinessCA12Puppi:tau1')
+        # process.JetPropertiesCA12.NsubjettinessTau2 = cms.vstring('NjettinessCA12Puppi:tau2')
+        # process.JetPropertiesCA12.NsubjettinessTau3 = cms.vstring('NjettinessCA12Puppi:tau3')
+
+        # process.JetPropertiesCA12.neutralHadronPuppiMultiplicity = cms.vstring("puppiSpecificCA12:neutralHadronPuppiMultiplicity")
+        # process.JetPropertiesCA12.neutralPuppiMultiplicity = cms.vstring("puppiSpecificCA12:neutralPuppiMultiplicity")
+        # process.JetPropertiesCA12.photonPuppiMultiplicity = cms.vstring("puppiSpecificCA12:photonPuppiMultiplicity")
+
+        #process.JetPropertiesCA12.properties.append("msd")
+        # process.JetPropertiesCA12.msd = cms.vstring("ca12PFJetsPuppiSoftDropMassBeta1")
+        # self.VectorDouble.extend([
+        #     'JetPropertiesCA12:msd(JetsCA12_softDropMassBeta1)'
+        # ])
+
     ## ----------------------------------------------------------------------------------------------
     ## ----------------------------------------------------------------------------------------------
     ## Final steps
@@ -1323,5 +1427,4 @@ def makeTreeFromMiniAOD(self,process):
         process.TreeMaker2
     )
     process.WriteTree.associate(process.myTask)
-
     return process

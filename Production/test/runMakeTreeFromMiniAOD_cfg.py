@@ -55,6 +55,7 @@ if theMaker.verbose:
         limit = cms.untracked.int32(10000000),
     )
 process.options = cms.untracked.PSet(
+   #  SkipEvent = cms.untracked.vstring('ProductNotFound'),
     allowUnscheduled = cms.untracked.bool(True),
 )
 
@@ -93,3 +94,4 @@ if debugjets:
 if dump:
     print process.dumpPython()
     sys.exit(0)
+SkipEvent = cms.untracked.vstring('ProductNotFound')
