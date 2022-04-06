@@ -1709,7 +1709,3 @@ class MCSampleValuesHelper():
 
     def get_corr(self, name, energy, year):
         return self.get_value(name, energy, year, "Correction", False)
-=======
-        if self.__values_dict[name]["CrossSection"].__getattribute__(fields[0]) >= 0:
-            return self.__values_dict[name]["CrossSection"].__getattribute__(fields[0])
->>>>>>> Charlie's work adding CA12 jets and RPV2W samples

@@ -249,7 +249,6 @@ def makeTreeFromMiniAOD(self,process):
     JetAK8Tag = cms.InputTag('slimmedJetsAK8Good')
 
     JetCA12Tag = cms.InputTag('JetsCA12')
-    print("Using jet tag for CA12: " , JetCA12Tag)
     process.slimmedJetsAK8Inf = cms.EDFilter("PATJetSelector",
         src = cms.InputTag("slimmedJetsAK8"),
         cut = cms.string("isPFJet && abs(daughter(0).energy)==exp(1000)"),
@@ -1315,7 +1314,7 @@ def makeTreeFromMiniAOD(self,process):
     ## CA12 jets
     ## ----------------------------------------------------------------------------------------------
 
-    if True:
+    if False:
 
         from JMEAnalysis.JetToolbox.jetToolbox_cff import jetToolbox
         jetToolbox(process,
