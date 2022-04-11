@@ -1314,17 +1314,17 @@ def makeTreeFromMiniAOD(self,process):
     ## CA12 jets
     ## ----------------------------------------------------------------------------------------------
 
-    if False:
-
+    if True:
         from JMEAnalysis.JetToolbox.jetToolbox_cff import jetToolbox
         jetToolbox(process,
             'ca12',
             'jetSequence',
             'out',
             PUMethod = 'Puppi',
-            miniAOD = True,
+            useExistingWeights=True,
+            dataTier = 'miniAOD',
             runOnMC = self.geninfo,
-            # Cut = 'pt>20.',
+            Cut = 'pt>20.',
             addPruning = False, # different from AK8
             addSoftDrop = True,
             addSoftDropSubjets = True,
@@ -1332,9 +1332,10 @@ def makeTreeFromMiniAOD(self,process):
             maxTau = 4,
             subjetBTagDiscriminators = ['pfCombinedInclusiveSecondaryVertexV2BJetTags'],
             addEnergyCorrFunc = True,
-            associateTask = False,
-            #verbosity = 2 if self.verbose else 0,
-            verbosity=2,
+            ecfType = ["N","M","C","D"],
+            ecfBeta = [1.0,2.0],
+            # use default pt cut for 3-jet ECFs: effectively disable them
+            verbosity = 2 if self.verbose else 0,
             # 
             JETCorrPayload = 'AK8PFPuppi',
             subJETCorrPayload = 'AK4PFPuppi',
