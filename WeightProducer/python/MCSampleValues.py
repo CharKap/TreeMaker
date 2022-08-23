@@ -1614,21 +1614,11 @@ class MCSampleValuesHelper():
         "RPV_2t6j_mStop-1400_mN1-100" : {
             "CrossSection" : XSValues(XS_13TeV=0.000473),
         },
-         "RPV_2w4j_mStop-650" : {
-             "CrossSection" : XSValues(XS_13TeV=0.125),
-         },
-         "RPV_2w4j_mStop-850" : {
-             "CrossSection" : XSValues(XS_13TeV=0.0225),
-         },
-         "RPV_2w4j_mStop-450" : {
-             "CrossSection" : XSValues(XS_13TeV=1.11),
-         },
-         "RPV_2w4j_mStop-1000" : {
-             "CrossSection" : XSValues(XS_13TeV=0.683E-02),
-         },
-         "RPV_2w4j_mStop-1200" : {
-             "CrossSection" : XSValues(XS_13TeV=0.170E-02),
-         }, 
+         "RPV_2w4j_mStop-650" : { "CrossSection" : XSValues(XS_13TeV=0.125), },
+         "RPV_2w4j_mStop-850" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
+         "RPV_2w4j_mStop-450" : { "CrossSection" : XSValues(XS_13TeV=1.11), },
+         "RPV_2w4j_mStop-1000" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
+         "RPV_2w4j_mStop-1200" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), }, 
          "RPV_2w4j_mStop-1000_mSbot-300" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
          "RPV_2w4j_mStop-1000_mSbot-700" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
          "RPV_2w4j_mStop-1200_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
@@ -1638,6 +1628,10 @@ class MCSampleValuesHelper():
          "RPV_2w4j_mStop-650_mSbot-300" : { "CrossSection" : XSValues(XS_13TeV=0.125), },
          "RPV_2w4j_mStop-850_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
          "RPV_2w4j_mStop-850_mSbot-500" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
+         "Stealth_CN-925_sgetbb" : { "CrossSection" : XSValues(XS_13TeV=2.06), },
+         "Stealth_CN-600-sgetbb" : { "CrossSection" : XSValues(XS_13TeV=19.55), },
+         "Stealth_CN-925_sgetglgl" : { "CrossSection" : XSValues(XS_13TeV=2.06), },
+         "Stealth_CN-600-sgetglgl" : { "CrossSection" : XSValues(XS_13TeV=19.55), },
     }
 
     __alternate_names_dict = {
