@@ -158,4 +158,17 @@ Summer20UL18samples = [
     MCSample('RPV_2t6j_mStop-300to1400_mN1-100_TuneCP5_13TeV-madgraphMLM-pythia8', '106X_upgrade2018_realistic_v16_L1v1-v1', 'RunIISummer20UL18MiniAODv2', 'Constant', 8876798),
     MCSample('StealthSYY_2t6j_mStop-300to1400_mSo-100_TuneCP5_13TeV-madgraphMLM-pythia8', '106X_upgrade2018_realistic_v16_L1v1-v1', 'RunIISummer20UL18MiniAODv2', 'Constant', 8550280),
     MCSample('StealthSHH_2t4b_mStop-300to1400_mSo-100_TuneCP5_13TeV-madgraphMLM-pythia8', '106X_upgrade2018_realistic_v16_L1v1-v1', 'RunIISummer20UL18MiniAODv2', 'Constant', 9339354),
+    MCSample('RPV_2w4j_mStop-650_TuneCP2_13TeV-madgraphMLM-pythia8', '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD', 'Constant', 204850, False),
+    MCSample('RPV_2w4j_mStop-850_TuneCP2_13TeV-madgraphMLM-pythia8', '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD', 'Constant', 216978, False),
+    MCSample('RPV_2w4j_mStop-450_TuneCP2_13TeV-madgraphMLM-pythia8', '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD', 'Constant', 270486, False),
+    MCSample('RPV_2w4j_mStop-1000_mSbot-300_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 11516, False),
+    MCSample('RPV_2w4j_mStop-1000_mSbot-700_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 11953, False),
+    MCSample('RPV_2w4j_mStop-1200_mSbot-100_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 12094, False),
+    MCSample('RPV_2w4j_mStop-1200_mSbot-500_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 11878, False),
+    MCSample('RPV_2w4j_mStop-1200_mSbot-900_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 12198, False),
+    MCSample('RPV_2w4j_mStop-450_mSbot-100_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 13811, False),
+    MCSample('RPV_2w4j_mStop-650_mSbot-300_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 12811, False),
+    MCSample('RPV_2w4j_mStop-850_mSbot-100_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 12195, False),
+    MCSample('RPV_2w4j_mStop-850_mSbot-500_TuneCP2_13TeV-madgraphMLM-pythia8' , '102X_upgrade2018_realistic_v15-v2', 'RunIIAutumn18MiniAOD' , 'Constant', 12355, False),
+
 ]
