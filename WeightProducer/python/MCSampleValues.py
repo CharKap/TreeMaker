@@ -1588,6 +1588,25 @@ class MCSampleValuesHelper():
                 XS_13TeV=0.000473
             ),
         },
+        "RPV_2w4j_mStop-650" : { "CrossSection" : XSValues(XS_13TeV=0.125), },
+        "RPV_2w4j_mStop-850" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
+        "RPV_2w4j_mStop-450" : { "CrossSection" : XSValues(XS_13TeV=1.11), },
+        "RPV_2w4j_mStop-1000" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
+        "RPV_2w4j_mStop-1200" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
+        "RPV_2w4j_mStop-1000_mSbot-300" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
+        "RPV_2w4j_mStop-1000_mSbot-700" : { "CrossSection" : XSValues(XS_13TeV=0.683E-02), },
+        "RPV_2w4j_mStop-1200_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
+        "RPV_2w4j_mStop-1200_mSbot-500" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
+        "RPV_2w4j_mStop-1200_mSbot-900" : { "CrossSection" : XSValues(XS_13TeV=0.170E-02), },
+        "RPV_2w4j_mStop-450_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=1.11), },
+        "RPV_2w4j_mStop-650_mSbot-300" : { "CrossSection" : XSValues(XS_13TeV=0.125), },
+        "RPV_2w4j_mStop-850_mSbot-100" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
+        "RPV_2w4j_mStop-850_mSbot-500" : { "CrossSection" : XSValues(XS_13TeV=0.0225), },
+        "Stealth_CN-925_sgetbb" : { "CrossSection" : XSValues(XS_13TeV=.00206), },
+        "Stealth_CN-600-sgetbb" : { "CrossSection" : XSValues(XS_13TeV=.1955), },
+        "Stealth_CN-925_sgetglgl" : { "CrossSection" : XSValues(XS_13TeV=.00206), },
+        "Stealth_CN-600-sgetglgl" : { "CrossSection" : XSValues(XS_13TeV=.1955), },
+
     }
 
     __alternate_names_dict = {
